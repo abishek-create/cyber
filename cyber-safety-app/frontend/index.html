@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Safety Incident Reporting Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span class="brand-name">CyberShield</span>
+        <span class="brand-badge">Official Portal</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#report-section" class="active">Report Incident</a>
+        <a href="#track-section">Track Complaint</a>
+        <a href="#categories-section">Threat Categories</a>
+        <a href="#admin-section">Admin SOC</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="tel:1930" class="emergency-badge" title="National Cyber Crime Helpline">
+          <span class="pulse-dot"></span>
+          Emergency: 1930
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-badge">Real-Time Cyber Safety Operations</div>
+      <h1>Stay Safe. Detect Threats.<br><span>Report Cybercrime.</span></h1>
+      <p class="hero-subtitle">
+        Securely document and report cyber fraud incidents. Every complaint is verified, stored in real-time, and dispatched to cyber authorities for immediate incident response.
+      </p>
+
+      <div class="hero-metrics">
+        <div class="metric-item">
+          <span class="metric-val">100%</span>
+          <span class="metric-lbl">Secure Triage</span>
+        </div>
+        <div class="metric-sep">/</div>
+        <div class="metric-item">
+          <span class="metric-val">Immediate</span>
+          <span class="metric-lbl">Email Dispatch</span>
+        </div>
+        <div class="metric-sep">/</div>
+        <div class="metric-item">
+          <span class="metric-val">24/7</span>
+          <span class="metric-lbl">Helpline 1930</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- Form Section -->
+    <section id="report-section" class="card-section">
+      <div class="section-header">
+        <h2>Report a Cyber Incident</h2>
+        <p>Complete all required details accurately. Your submission triggers automated security logging and notification dispatch.</p>
+      </div>
+
+      <!-- Live Notification Banner -->
+      <div id="alertBanner" class="alert-banner hidden"></div>
+
+      <!-- Submission Form Container -->
+      <div id="formContainer">
+        <form id="complaintForm" class="complaint-form" novalidate>
+
+          <!-- Group 1: Reporter Contact Details -->
+          <div class="form-group-block">
+            <h3 class="block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="title-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Reporter Identification
+            </h3>
+            
+            <div class="form-row form-row-3">
+              <div class="form-field">
+                <label for="name">Full Legal Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+                <div class="field-error" id="nameError"></div>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="e.g. john.doe@example.com" required>
+                <div class="field-error" id="emailError"></div>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Contact Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. +91 9876543210" required>
+                <div class="field-error" id="phoneError"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 2: Incident Parameters -->
+          <div class="form-group-block">
+            <h3 class="block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="title-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Incident Specifics
+            </h3>
+
+            <div class="form-row form-row-3">
+              <div class="form-field">
+                <label for="category">Cyber Issue Category <span class="required">*</span></label>
+                <select id="category" name="category" required>
+                  <option value="" disabled selected>Select an incident category...</option>
+                  <option value="Banking scams">Banking scams</option>
+                  <option value="UPI/payment fraud">UPI/payment fraud</option>
+                  <option value="Phishing">Phishing</option>
+                  <option value="Suspicious links">Suspicious links</option>
+                  <option value="Email scams">Email scams</option>
+                  <option value="WhatsApp/messaging scams">WhatsApp/messaging scams</option>
+                  <option value="Social media scams">Social media scams</option>
+                  <option value="Fake websites">Fake websites</option>
+                  <option value="Online shopping fraud">Online shopping fraud</option>
+                  <option value="OTP fraud">OTP fraud</option>
+                  <option value="Fake customer-care scams">Fake customer-care scams</option>
+                  <option value="Identity theft">Identity theft</option>
+                  <option value="Account hacking">Account hacking</option>
+                  <option value="Investment/crypto scams">Investment/crypto scams</option>
+                  <option value="Other cyber crimes">Other cyber crimes</option>
+                </select>
+                <div class="field-error" id="categoryError"></div>
+              </div>
+
+              <div class="form-field">
+                <label for="subject">Incident Subject / Brief Headline <span class="required">*</span></label>
+                <input type="text" id="subject" name="subject" placeholder="e.g. Unauthorized UPI debit via fake buyer QR code" required>
+                <div class="field-error" id="subjectError"></div>
+              </div>
+
+              <div class="form-field">
+                <label for="incident_date">Date of Incident <span class="required">*</span></label>
+                <input type="date" id="incident_date" name="incident_date" required>
+                <div class="field-error" id="dateError"></div>
+              </div>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="description">Chronological Incident Description <span class="required">*</span></label>
+              <textarea id="description" name="description" rows="5" placeholder="Detail how the fraud happened: communication medium, suspect contact handle, what was requested, financial loss amount, and bank transaction reference IDs if applicable..." required></textarea>
+              <div class="field-error" id="descriptionError"></div>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="evidence">Supporting Evidence Information / URLs / Reference IDs (Optional)</label>
+              <textarea id="evidence" name="evidence" rows="3" placeholder="Provide URLs of fake portals, suspect phone numbers, UPI VPAs (e.g. payment@okaxis), or transaction UTR numbers. (Do NOT enter passwords or card CVVs)."></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Button & Disclaimer -->
+          <div class="form-footer">
+            <div class="security-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="shield-mini"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>Encrypted submission. Notification auto-dispatched to duty desk upon submit.</span>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <span class="btn-text">Submit Complaint</span>
+              <span class="btn-spinner hidden" id="btnSpinner"></span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Success Card (Displayed dynamically) -->
+      <div id="successCard" class="success-card hidden">
+        <div class="success-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="check-icon"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+
+        <h3 class="success-title">✓ COMPLAINT SUBMITTED SUCCESSFULLY</h3>
+        <p class="success-sub">Your cyber incident has been registered.</p>
+
+        <div class="complaint-id-box">
+          <div class="complaint-id-lbl">Complaint ID:</div>
+          <div class="complaint-id-val" id="displayComplaintId">CS-XXXXXX</div>
+          <div class="complaint-id-hint">Save this ID for reference and investigation updates.</div>
+        </div>
+
+        <p class="success-info">
+          A confirmation has been sent to the registered email address.
+        </p>
+
+        <p class="success-security">
+          Our system has securely recorded your report.
+        </p>
+
+        <div class="success-actions">
+          <button type="button" id="returnHomeBtn" class="btn btn-outline">
+            Return to Home
+          </button>
+          <button type="button" id="trackThisBtn" class="btn btn-primary">
+            Track Case Status
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Tracking Section -->
+    <section id="track-section" class="card-section">
+      <div class="section-header">
+        <h2>Track an Existing Complaint</h2>
+        <p>Enter your unique Reference ID and registered email or phone number to review active progress.</p>
+      </div>
+
+      <form id="trackForm" class="track-form">
+        <div class="form-row form-row-2">
+          <div class="form-field">
+            <label for="trackId">Complaint Reference ID</label>
+            <input type="text" id="trackId" placeholder="e.g. CS-123456" required>
+          </div>
+
+          <div class="form-field">
+            <label for="trackKey">Registered Email or Phone</label>
+            <input type="text" id="trackKey" placeholder="e.g. user@example.com" required>
+          </div>
+        </div>
+
+        <div class="track-btn-wrap">
+          <button type="submit" id="trackSubmitBtn" class="btn btn-primary">
+            Verify & Track Status
+          </button>
+        </div>
+      </form>
+
+      <div id="trackResult" class="track-result hidden"></div>
+    </section>
+
+    <!-- Threat Categories Showcase -->
+    <section id="categories-section" class="card-section">
+      <div class="section-header">
+        <h2>Supported Cyber Issue Categories</h2>
+        <p>Comprehensive incident intake handling modern fraud vectors.</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="cat-pill">Banking scams</div>
+        <div class="cat-pill">UPI/payment fraud</div>
+        <div class="cat-pill">Phishing</div>
+        <div class="cat-pill">Suspicious links</div>
+        <div class="cat-pill">Email scams</div>
+        <div class="cat-pill">WhatsApp/messaging scams</div>
+        <div class="cat-pill">Social media scams</div>
+        <div class="cat-pill">Fake websites</div>
+        <div class="cat-pill">Online shopping fraud</div>
+        <div class="cat-pill">OTP fraud</div>
+        <div class="cat-pill">Fake customer-care scams</div>
+        <div class="cat-pill">Identity theft</div>
+        <div class="cat-pill">Account hacking</div>
+        <div class="cat-pill">Investment/crypto scams</div>
+        <div class="cat-pill">Other cyber crimes</div>
+      </div>
+    </section>
+
+    <!-- Admin SOC Section -->
+    <section id="admin-section" class="card-section">
+      <div class="section-header">
+        <h2>Admin Security Operations (SOC)</h2>
+        <p>Authenticated access for reviewing incident queues and transitioning case statuses.</p>
+      </div>
+
+      <div id="adminAuthBlock" class="admin-auth-block">
+        <div class="form-field">
+          <label for="adminApiKey">Admin Security Key</label>
+          <div class="admin-input-row">
+            <input type="password" id="adminApiKey" placeholder="Enter ADMIN_API_KEY (default: admin_secret_key_12345)">
+            <button type="button" id="adminLoginBtn" class="btn btn-primary">Access SOC Queue</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-toolbar">
+          <div class="admin-search-wrap">
+            <input type="text" id="adminSearchInput" placeholder="Search ID, name, email, or subject...">
+          </div>
+          <div class="admin-filter-wrap">
+            <select id="adminStatusFilter">
+              <option value="all">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Resolved">Resolved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+            <button type="button" id="adminRefreshBtn" class="btn btn-outline btn-sm">Refresh</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="complaints-table">
+            <thead>
+              <tr>
+                <th>Complaint ID</th>
+                <th>Reporter</th>
+                <th>Category</th>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="complaintsTableBody">
+              <tr>
+                <td colspan="7" class="text-center">Loading incident records...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">CyberShield Operations</div>
+      <div class="footer-note">Emergency Cyber Fraud Helpline: Dial 1930 (National Citizen Reporting Service)</div>
+      <div class="footer-copy">© 2026 Cyber Safety Reporting Portal. Protected by TLS encryption.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

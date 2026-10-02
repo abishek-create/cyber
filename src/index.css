@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-cyber-grid {
+    background-color: #F5F8FC;
+    background-image: radial-gradient(rgba(11, 31, 58, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
